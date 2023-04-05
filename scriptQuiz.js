@@ -214,7 +214,8 @@ function calcularIMC(peso, altura) {
 const imc = calcularIMC(peso, altura);
 
 console.log("Tu IMC es: " + imc);
-
+console.log("El peso es de: " + peso);
+console.log("Tu altura es de: " + altura);
 
 //------Obtener respuesta ultimo estudio---------------
     const option1S3 = document.getElementById("op1_step3");
@@ -392,7 +393,10 @@ else {
   recomendacion = 'basico';
 }
 console.log("recom: " + recomendacion);
-
+// Cambiar la visibilidad del checkup correspondiente
+/* let checkup = document.getElementById(recomendacion);
+checkup.style.display = 'block';
+submitSection.style.display = 'none'; */
     }
   });
 /* form.addEventListener('keypress', function(e) {
