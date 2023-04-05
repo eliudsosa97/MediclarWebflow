@@ -197,7 +197,25 @@ if (maleRadio.checked) {
 //-----Calcular edad------
 const age = calculateAge(dia, mes, year);
 console.log("edad: " + age);
-let recomendacion = '';
+
+//--------Obtener la altura y el peso-----------
+function calcularIMC(peso, altura) {
+  // Convertir la altura a metros
+  altura = altura / 100;
+  
+  // Calcular el IMC
+  let imc = peso / (altura * altura);
+  
+  // Redondear el resultado a dos decimales
+  imc = Math.round(imc * 100) / 100;
+  
+  return imc;
+}
+const imc = calcularIMC(peso, altura);
+
+console.log("Tu IMC es: " + imc);
+
+
 //------Obtener respuesta ultimo estudio---------------
     const option1S3 = document.getElementById("op1_step3");
     const option2S3 = document.getElementById("op2_step3");
@@ -358,10 +376,11 @@ let recomendacion = '';
     } else if (enfermedades6.checked){
       answerEnf = enfermedades6.value;
     }else {
-      console.log("No se selecciono ninguna respuesta de sexual");
+      console.log("No se selecciono ninguna respuesta de enfermedades");
     }
 
 //--------Algoritomo de recomendacion---------
+let recomendacion = '';
 if (age < 39 && sexo === 'M') {
   recomendacion = 'hombres40';
 } else if (age > 59 && sexo === 'F') {
