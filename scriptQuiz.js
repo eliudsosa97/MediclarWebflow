@@ -1,3 +1,4 @@
+
 const form = document.getElementById('quiz-form');
 const formSteps = form.querySelectorAll('.step');
 const nextBtns = form.querySelectorAll('.next-btn');
@@ -112,109 +113,44 @@ function validateCurrentStep() {
       } else {
         return true;
       }
+    case 6:
+      console.log("Validando case 6");
+      let selectedConsumidor = $('input[name=consumidor]:checked');
+      if (selectedConsumidor.length === 0) {
+        alert('Por favor, seleccione una respuesta.');
+        return false;
+      } else {
+        return true;
+      }
+    case 7:
+      console.log("Validando case 7");
+      let selectedAlcohol = $('input[name=alcohol]:checked');
+      if (selectedAlcohol.length === 0) {
+        alert('Por favor, seleccione una respuesta.');
+        return false;
+      } else {
+        return true;
+      }
+    case 8:
+      console.log("Validando case 8");
+      let selectedSexual = $('input[name=sexual]:checked');
+      if (selectedSexual.length === 0) {
+        alert('Por favor, seleccione una respuesta.');
+        return false;
+      } else {
+        return true;
+      }
+    case 9:
+      console.log("Validando case 8");
+      let selectedEnf = $('input[name=enfermedades]:checked');
+      if (selectedEnf.length === 0) {
+        alert('Por favor, seleccione una respuesta.');
+        return false;
+      } else {
+        return true;
+      }
   }
 }
-
-/* //-----Version antigua de validate current
-
-function validateCurrentStep() {
-    const currentStepFields = formSteps[currentStep].querySelectorAll('input, select');
-    // Validar fecha de nacimiento
-    const diaField = document.getElementById('dia');
-    const mesField = document.getElementById('mes');
-    const yearField = document.getElementById('year');
-    const dia = parseInt(diaField.value);
-    const mes = parseInt(mesField.value);
-    const year = parseInt(yearField.value);
-    if (isNaN(dia) || isNaN(mes) || isNaN(year) || dia < 1 || dia > 31 || mes < 1 || mes > 12 || year < 1900 || year > new Date().getFullYear()) {
-        alert('Por favor ingrese una fecha de nacimiento válida.');
-        return false;
-    }if (mes === 2 && dia > 28) {
-        alert('Febrero tiene máximo 28 días');
-        return false;
-    } if (mes === 4 && dia > 30) {
-        alert('Abril tiene máximo 30 días');
-        return false;
-    }if (mes === 6 && dia > 30) {
-        alert('Junio tiene máximo 30 días');
-        return false;
-    }if (mes === 9 && dia > 30) {
-        alert('Septiembre tiene máximo 30 días');
-        return false;
-    }if (mes === 11 && dia > 30) {
-        alert('Septiembre tiene máximo 30 días');
-        return false;
-    }
-    
-        switch (currentStep) {
-          case 0:
-            let selectedGender = $('input[name=sexo]:checked');
-            if (selectedGender.length === 0) {
-            alert('Por favor, seleccione su género.');
-            return false;
-            } else {
-            return true;
-            }
-          case 1:
-            //-------Validar estatura y peso
-    
-            const alturaField = document.getElementById('altura');
-            const pesoField = document.getElementById('peso');
-            const altura = parseInt(alturaField.value);
-            const peso = parseInt(pesoField.value);
-    
-            if (altura < 20 || altura > 250) {
-            alert("La estatura debe estar en cm y ser mayor de 20");
-            return false;
-            }
-    
-            if (peso < 3 || peso > 350) {
-            alert("El peso debe estar en kg y ser mayor de 10.");
-            return false;
-            }
-        case 2:
-          //---------Validar respuesta ultimo estudio--
-          let selectedEstudio = $('input[name=estudio]:checked');
-          if (selectedEstudio.length === 0) {
-          alert('Por favor, seleccione una respuesta.');
-          return false;
-          } else {
-          return true;
-          }
-
-
-        };
-
-    
-    const sexoField = form.querySelector('#sexo');
-    const alturaField = form.querySelector('#altura');
-    let isValid = true;
-  
-    currentStepFields.forEach((field) => {
-      if (field.value === '' || (currentStep === 1 && !sexoField) || (currentStep === 2 && !alturaField)) {
-        field.classList.add('error');
-        isValid = false;
-      } else {
-        field.classList.remove('error');
-      }
-    });
-  
-    // En el último paso, solo validamos que todos los campos anteriores hayan sido completados
-    if (currentStep === formSteps.length - 1) {
-      for (let i = 0; i < currentStepFields.length - 1; i++) {
-        if (currentStepFields[i].value === '') {
-          isValid = false;
-          break;
-        }
-      }
-    }
-  
-    return isValid;
-  }
-  
-   */
-  
-
 function handleNextButtonClick(e) {
     e.preventDefault();
 
@@ -232,10 +168,6 @@ function handleNextButtonClick(e) {
       }
     } 
   }
-  
-  
-
-
 function handlePrevButtonClick(e) {
   e.preventDefault();
   currentStep--;
@@ -351,6 +283,90 @@ let recomendacion = '';
     } else {
       console.log("No se seleciiono ninguna respuesta de tabaco");
     }
+    //-----------Obtener respuesta Consumidor---------
+    const consumidorSi = document.getElementById("consumidorSi");
+    const consumidorNo = document.getElementById("consumidorNo");
+
+    let answerConsumidor;
+    if(consumidorSi.checked){
+      answerConsumidor = consumidorSi.value;
+    } else if (consumidorNo.checked) {
+      answerConsumidor = consumidorNo.value;
+    } else {
+      console.log("No se seleciiono ninguna respuesta de Consumidor");
+    }
+    //-----------Obtener respuesta Alcohol-------------
+    const alcohol1 = document.getElementById("alcohol1");
+    const alcohol2 = document.getElementById("alcohol2");
+    const alcohol3 = document.getElementById("alcohol3");
+    const alcohol4 = document.getElementById("alcohol4");
+    const alcohol5 = document.getElementById("alcohol5");
+
+    let answerAlcohol;
+    if(alcohol1.checked){
+      answerAlcohol = alcohol1.value;
+    } else if (alcohol2.checked){
+      answerAlcohol = alcohol2.value;
+    } else if (alcohol3.checked){
+      answerAlcohol = alcohol3.value;
+    } else if (alcohol4.checked){
+      answerAlcohol = alcohol4.value;
+    } else if (alcohol5.checked){
+      answerAlcohol = alcohol5.value;
+    } else {
+      console.log("No se selecciono ninguna respuesta de alcohol");
+    }
+    //-----------Obtener respuesta Sexual-------------
+    const sexual1 = document.getElementById("sexual1");
+    const sexual2 = document.getElementById("sexual2");
+    const sexual3 = document.getElementById("sexual3");
+    const sexual4 = document.getElementById("sexual4");
+    const sexual5 = document.getElementById("sexual5");
+    const sexual6 = document.getElementById("sexual6");
+    
+
+    let answerSexual;
+    if(sexual1.checked){
+      answerSexual = sexual1.value;
+    } else if (sexual2.checked){
+      answerSexual = sexual2.value;
+    } else if (sexual3.checked){
+      answerSexual = sexual3.value;
+    } else if (sexual4.checked){
+      answerSexual = sexual4.value;
+    } else if (sexual5.checked){
+      answerSexual = sexual5.value;
+    } else if (sexual6.checked){
+      answerSexual = sexual6.value;
+    }else {
+      console.log("No se selecciono ninguna respuesta de sexual");
+    }
+
+    //-----------Obtener respuesta Enfermedades cronicas-------------
+    const enfermedades1 = document.getElementById("enfermedades1");
+    const enfermedades2 = document.getElementById("enfermedades2");
+    const enfermedades3 = document.getElementById("enfermedades3");
+    const enfermedades4 = document.getElementById("enfermedades4");
+    const enfermedades5 = document.getElementById("enfermedades5");
+    const enfermedades6 = document.getElementById("enfermedades6");
+
+
+    let answerEnf;
+    if(enfermedades1.checked){
+      answerEnf = enfermedades1.value;
+    } else if (enfermedades2.checked){
+      answerEnf = enfermedades2.value;
+    } else if (enfermedades3.checked){
+      answerEnf = enfermedades3.value;
+    } else if (enfermedades4.checked){
+      answerEnf = enfermedades4.value;
+    } else if (enfermedades5.checked){
+      answerEnf = enfermedades5.value;
+    } else if (enfermedades6.checked){
+      answerEnf = enfermedades6.value;
+    }else {
+      console.log("No se selecciono ninguna respuesta de sexual");
+    }
 
 //--------Algoritomo de recomendacion---------
 if (age < 39 && sexo === 'M') {
@@ -394,7 +410,6 @@ function calculateAge(diaField, mesField, yearField) {
       console.log('El valor del año debe estar entre 1900 y el año actual');
       return;
     }
-    
     const today = new Date();
     const birthDate = new Date(year, mes - 1, dia);
     let age = today.getFullYear() - birthDate.getFullYear();
@@ -403,7 +418,6 @@ function calculateAge(diaField, mesField, yearField) {
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
       age--;
     }
-    
     return age;
   };
   
