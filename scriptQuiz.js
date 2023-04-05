@@ -107,8 +107,8 @@ function validateCurrentStep() {
     case 5:
       console.log("Validando case 5");
       let selectedTabaco = $('input[name=tabaco]:checked');
-      let selectedConsumidor = $('input[name=consumidor]:checked');
-      if (selectedTabaco.length === 0 || selectedConsumidor.length === 0) {
+      
+      if (selectedTabaco.length === 0) {
         alert('Por favor, seleccione una respuesta.');
         return false;
       } else {
