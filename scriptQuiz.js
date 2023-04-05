@@ -107,22 +107,15 @@ function validateCurrentStep() {
     case 5:
       console.log("Validando case 5");
       let selectedTabaco = $('input[name=tabaco]:checked');
-      if (selectedTabaco.length === 0) {
-        alert('Por favor, seleccione una respuesta.');
-        return false;
-      } else {
-        return true;
-      }
-    case 6:
-      console.log("Validando case 6");
       let selectedConsumidor = $('input[name=consumidor]:checked');
-      if (selectedConsumidor.length === 0) {
+      if (selectedTabaco.length === 0 || selectedConsumidor.length === 0) {
         alert('Por favor, seleccione una respuesta.');
         return false;
       } else {
         return true;
       }
-    case 7:
+    
+    case 6:
       console.log("Validando case 7");
       let selectedAlcohol = $('input[name=alcohol]:checked');
       if (selectedAlcohol.length === 0) {
@@ -131,7 +124,7 @@ function validateCurrentStep() {
       } else {
         return true;
       }
-    case 8:
+    case 7:
       console.log("Validando case 8");
       let selectedSexual = $('input[name=sexual]:checked');
       if (selectedSexual.length === 0) {
@@ -140,7 +133,7 @@ function validateCurrentStep() {
       } else {
         return true;
       }
-    case 9:
+    case 8:
       console.log("Validando case 8");
       let selectedEnf = $('input[name=enfermedades]:checked');
       if (selectedEnf.length === 0) {
