@@ -392,10 +392,7 @@ else {
   recomendacion = 'basico';
 }
 console.log("recom: " + recomendacion);
-// Cambiar la visibilidad del checkup correspondiente
-let checkup = document.getElementById(recomendacion);
-checkup.style.display = 'block';
-submitSection.style.display = 'none';
+
     }
   });
 /* form.addEventListener('keypress', function(e) {
