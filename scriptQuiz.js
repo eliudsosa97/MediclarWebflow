@@ -118,6 +118,7 @@ function validateCurrentStep() {
     case 6:
       console.log("Validando case 6");
       let selectedAlcohol = $('input[name=alcohol]:checked');
+      console.log(selectedAlcohol);
       if (selectedAlcohol.length === 0) {
         alert('Por favor, seleccione una respuesta.');
         return false;
