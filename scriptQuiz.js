@@ -381,6 +381,13 @@ console.log("Tu altura es de: " + altura.value);
     console.log("EDAD : " + age);
     console.log("IMC es de : " + imc);
     console.log("CORREO : " + correoInput.value);
+    const perfilDiv = document.getElementById("card-perfil");
+    const mensaje = `Nombre: ${nombreInput.value} <br> Sexo: ${sexo} <br> Edad: ${age} <br> Índice de masa corporal: ${imc}`;
+    perfilDiv.innerHTML = mensaje;
+    
+          perfilDiv.classList.add("card-perfil");
+
+
 
 //--------Algoritomo de recomendacion---------
 let recomendacion = '';
