@@ -177,34 +177,34 @@ prevBtns.forEach((btn) => {
 });
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    const nombreInput = document.querySelector('#nombre');
-  const correoInput = document.querySelector('#correo');
-    if (nombreInput.value && correoInput.value) {
-      // Si los campos de nombre y correo están llenos
-      const formData = new FormData(form);
-      const entries = formData.entries();
-  
-      for (let entry of entries) {
-        console.log(entry[0] + ': ' + entry[1]);
-      }
-  
-      // Aquí puedes agregar el código para enviar el correo con la información recabada
+    const formData = new FormData(form);
+    const entries = formData.entries();
+    for (let entry of entries) {
+      console.log(entry[0] + ': ' + entry[1]);
+//-----Obtener valor del sexo--------
+    const maleRadio = document.getElementById("radio-m");
+    const femaleRadio = document.getElementById("radio-f");
     
-   		
-      const maleRadio = document.getElementById("radio-m");
-      const femaleRadio = document.getElementById("radio-f");
-    
-     let sexo;
+    let sexo;
 
 if (maleRadio.checked) {
-  sexo = maleRadio.value;
+    sexo = maleRadio.value;
 } else if (femaleRadio.checked) {
-  sexo = femaleRadio.value;
+    sexo = femaleRadio.value;
 } else {
-  console.log("No gender selected");
+    console.log("No gender selected");
 }
+//-----Calcular edad------
 const age = calculateAge(dia, mes, year);
 console.log("edad: " + age);
+
+//--------Obtener IMC-----------
+
+const imc = calcularIMC(peso, altura);
+
+console.log("Tu IMC es: " + imc);
+console.log("El peso es de: " + peso.value);
+console.log("Tu altura es de: " + altura.value);
 
 //------Obtener respuesta ultimo estudio---------------
     const option1S3 = document.getElementById("op1_step3");
@@ -226,9 +226,9 @@ console.log("edad: " + age);
     }else if (option5S3.checked){
         answerStep3 = option5S3.value;
     }else {
-        console.log("No se selecciono ninguna respuesta")
+        console.log("No se selecciono ninguna respuesta");
     }
-    
+
     //-------Obtener respuesta del descanso--------
     const descansoEx = document.getElementById("descanso1");
     const descansoBu = document.getElementById("descanso2");
@@ -248,7 +248,7 @@ console.log("edad: " + age);
     } else {
       console.log("No se selecciono ninguna respuesta de descanso");
     }
-    
+
     //------------Obtener respuesta de ejercicio----------------
 
     const ejercicio1 = document.getElementById("ejercicio1");
@@ -271,6 +271,7 @@ console.log("edad: " + age);
     } else {
       console.log("No se selecciono ninguna respuesta de ejercicio");
     }
+
     //-----------Obtener respuesta tabaco---------
     const tabacoSi = document.getElementById("tabacoSi");
     const tabacoNo = document.getElementById("tabacoNo");
@@ -283,9 +284,93 @@ console.log("edad: " + age);
     } else {
       console.log("No se seleciiono ninguna respuesta de tabaco");
     }
+    //-----------Obtener respuesta Consumidor---------
+    const consumidorSi = document.getElementById("consumidorSi");
+    const consumidorNo = document.getElementById("consumidorNo");
 
+    let answerConsumidor;
+    if(consumidorSi.checked){
+      answerConsumidor = consumidorSi.value;
+    } else if (consumidorNo.checked) {
+      answerConsumidor = consumidorNo.value;
+    } else {
+      console.log("No se seleciiono ninguna respuesta de Consumidor");
+    }
+    //-----------Obtener respuesta Alcohol-------------
+    const alcohol1 = document.getElementById("alcohol1");
+    const alcohol2 = document.getElementById("alcohol2");
+    const alcohol3 = document.getElementById("alcohol3");
+    const alcohol4 = document.getElementById("alcohol4");
+    const alcohol5 = document.getElementById("alcohol5");
+
+    let answerAlcohol;
+    if(alcohol1.checked){
+      answerAlcohol = alcohol1.value;
+    } else if (alcohol2.checked){
+      answerAlcohol = alcohol2.value;
+    } else if (alcohol3.checked){
+      answerAlcohol = alcohol3.value;
+    } else if (alcohol4.checked){
+      answerAlcohol = alcohol4.value;
+    } else if (alcohol5.checked){
+      answerAlcohol = alcohol5.value;
+    } else {
+      console.log("No se selecciono ninguna respuesta de alcohol");
+    }
+    //-----------Obtener respuesta Sexual-------------
+    const sexual1 = document.getElementById("sexual1");
+    const sexual2 = document.getElementById("sexual2");
+    const sexual3 = document.getElementById("sexual3");
+    const sexual4 = document.getElementById("sexual4");
+    const sexual5 = document.getElementById("sexual5");
+    const sexual6 = document.getElementById("sexual6");
+    
+
+    let answerSexual;
+    if(sexual1.checked){
+      answerSexual = sexual1.value;
+    } else if (sexual2.checked){
+      answerSexual = sexual2.value;
+    } else if (sexual3.checked){
+      answerSexual = sexual3.value;
+    } else if (sexual4.checked){
+      answerSexual = sexual4.value;
+    } else if (sexual5.checked){
+      answerSexual = sexual5.value;
+    } else if (sexual6.checked){
+      answerSexual = sexual6.value;
+    }else {
+      console.log("No se selecciono ninguna respuesta de sexual");
+    }
+
+    //-----------Obtener respuesta Enfermedades cronicas-------------
+    const enfermedades1 = document.getElementById("enfermedades1");
+    const enfermedades2 = document.getElementById("enfermedades2");
+    const enfermedades3 = document.getElementById("enfermedades3");
+    const enfermedades4 = document.getElementById("enfermedades4");
+    const enfermedades5 = document.getElementById("enfermedades5");
+    const enfermedades6 = document.getElementById("enfermedades6");
+
+
+    let answerEnf;
+    if(enfermedades1.checked){
+      answerEnf = enfermedades1.value;
+    } else if (enfermedades2.checked){
+      answerEnf = enfermedades2.value;
+    } else if (enfermedades3.checked){
+      answerEnf = enfermedades3.value;
+    } else if (enfermedades4.checked){
+      answerEnf = enfermedades4.value;
+    } else if (enfermedades5.checked){
+      answerEnf = enfermedades5.value;
+    } else if (enfermedades6.checked){
+      answerEnf = enfermedades6.value;
+    }else {
+      console.log("No se selecciono ninguna respuesta de enfermedades");
+    }
+
+//--------Algoritomo de recomendacion---------
 let recomendacion = '';
-  
 if (age < 39 && sexo === 'M') {
   recomendacion = 'Hombres 40';
 } else if (age > 59 && sexo === 'F') {
@@ -300,10 +385,7 @@ console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
 let checkup = document.getElementById(recomendacion);
 checkup.style.display = 'block';
-submitSection.style.display = 'none';
-    } else {
-      // Si los campos de nombre y correo están vacíos
-      alert('Por favor, completa los campos de nombre y correo.');
+submitSection.style.display = 'none'; 
     }
   });
 form.addEventListener('keypress', function(e) {
@@ -353,4 +435,17 @@ function calculateAge(diaField, mesField, yearField) {
     formImc = Math.round(formImc * 100) / 100;
     
     return formImc;
-  }
+  };
+  function enviarFormulario() {
+    var nombre = document.getElementById('nombre').value;
+    var correo = document.getElementById('correo').value;
+    
+    if(nombre === '' || correo === '') {
+      alert('Por favor ingrese su nombre y correo electrónico');
+      return false;
+    }
+    
+    // Aquí se puede agregar el código para enviar la información del formulario por correo
+    
+    return true;
+  };
