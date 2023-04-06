@@ -209,9 +209,9 @@ function calcularIMC(peso, altura) {
   // Redondear el resultado a dos decimales
   formImc = Math.round(imc * 100) / 100;
   
-  return imc;
+  return formImc;
 }
-const imc = calcularIMC(peso, altura);
+
 
 console.log("Tu IMC es: " + imc);
 console.log("El peso es de: " + peso);
