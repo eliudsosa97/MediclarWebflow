@@ -374,6 +374,14 @@ console.log("Tu altura es de: " + altura.value);
       console.log("No se selecciono ninguna respuesta de enfermedades");
     }
 
+    //-----------Obtener todos los datos-----------
+
+    console.log("NOMBRE : " + nombreInput.value);
+    console.log("SEXO : " + sexo);
+    console.log("EDAD : " + age);
+    console.log("IMC es de : " + imc);
+    console.log("CORREO : " + correoInput.value);
+
 //--------Algoritomo de recomendacion---------
 let recomendacion = '';
 if (age < 39 && sexo === 'M') {
@@ -445,17 +453,4 @@ function calculateAge(diaField, mesField, yearField) {
     formImc = Math.round(formImc * 100) / 100;
     
     return formImc;
-  };
-  function enviarFormulario() {
-    var nombre = document.getElementById('nombre').value;
-    var correo = document.getElementById('correo').value;
-    
-    if(nombre === '' || correo === '') {
-      alert('Por favor ingrese su nombre y correo electrónico');
-      return false;
-    }
-    
-    // Aquí se puede agregar el código para enviar la información del formulario por correo
-    
-    return true;
   };
