@@ -204,10 +204,10 @@ function calcularIMC(peso, altura) {
   altura = altura / 100;
   
   // Calcular el IMC
-  let imc = peso / (altura * altura);
+  let formImc = peso / (altura * altura);
   
   // Redondear el resultado a dos decimales
-  imc = Math.round(imc * 100) / 100;
+  formImc = Math.round(imc * 100) / 100;
   
   return imc;
 }
