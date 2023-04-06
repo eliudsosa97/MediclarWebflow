@@ -424,7 +424,7 @@ function calculateAge(diaField, mesField, yearField) {
   };
   function calcularIMC(pesoField, alturaField) {
     const peso = parseInt(pesoField.value);
-    const altura = parseInt(alturaField.value);
+    let altura = parseInt(alturaField.value);
     // Convertir la altura a metros
     altura = altura / 100;
     
