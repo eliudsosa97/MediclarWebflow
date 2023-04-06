@@ -372,7 +372,7 @@ console.log("Tu altura es de: " + altura);
 //--------Algoritomo de recomendacion---------
 let recomendacion = '';
 if (age < 39 && sexo === 'M') {
-  recomendacion = 'hombres40';
+  recomendacion = 'Hombres 40';
 } else if (age > 59 && sexo === 'F') {
   recomendacion = 'adultoMayorMujer';
 } else if (age < 15){
@@ -383,16 +383,16 @@ else {
 }
 console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
-/* let checkup = document.getElementById(recomendacion);
+let checkup = document.getElementById(recomendacion);
 checkup.style.display = 'block';
-submitSection.style.display = 'none'; */
+submitSection.style.display = 'none'; 
     }
   });
-/* form.addEventListener('keypress', function(e) {
+form.addEventListener('keypress', function(e) {
   if (e.key === 'Enter') {
     e.preventDefault();
   }
-}); */
+}); 
   
 function calculateAge(diaField, mesField, yearField) {
     const dia = parseInt(diaField.value);
