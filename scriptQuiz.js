@@ -176,7 +176,11 @@ prevBtns.forEach((btn) => {
   btn.addEventListener('click', handlePrevButtonClick);
 });
 submitBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+    /* e.preventDefault(); */
+    const nombreInput = document.querySelector('#nombre');
+    const correoInput = document.querySelector('#correo');
+
+    if (nombreInput.value && correoInput.value){
     const formData = new FormData(form);
     const entries = formData.entries();
     for (let entry of entries) {
@@ -386,7 +390,11 @@ console.log("recom: " + recomendacion);
 let checkup = document.getElementById(recomendacion);
 checkup.style.display = 'block';
 submitSection.style.display = 'none'; 
+}} else {
+      // Si los campos de nombre y correo están vacíos
+      alert('Por favor, completa los campos de nombre y correo.');
     }
+    
   });
 form.addEventListener('keypress', function(e) {
   if (e.key === 'Enter') {
