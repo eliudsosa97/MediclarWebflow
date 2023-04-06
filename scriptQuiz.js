@@ -179,8 +179,9 @@ submitBtn.addEventListener('click', (e) => {
     /* e.preventDefault(); */
     const nombreInput = document.querySelector('#nombre');
     const correoInput = document.querySelector('#correo');
+    const validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
-    if (nombreInput.value && correoInput.value){
+    if (nombreInput.value && (validEmail.test(correoInput.value))){
     const formData = new FormData(form);
     const entries = formData.entries();
     for (let entry of entries) {
@@ -391,8 +392,9 @@ let checkup = document.getElementById(recomendacion);
 checkup.style.display = 'block';
 submitSection.style.display = 'none'; 
 }} else {
+  
       // Si los campos de nombre y correo están vacíos
-      alert('Por favor, completa los campos de nombre y correo.');
+      alert('Por favor, asegurate de que tu nombre y correo estén bien escritos');
     }
     
   });
