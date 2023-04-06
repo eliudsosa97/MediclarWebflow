@@ -198,20 +198,9 @@ if (maleRadio.checked) {
 const age = calculateAge(dia, mes, year);
 console.log("edad: " + age);
 
-//--------Obtener la altura y el peso-----------
-function calcularIMC(peso, altura) {
-  // Convertir la altura a metros
-  altura = altura / 100;
-  
-  // Calcular el IMC
-  let formImc = peso / (altura * altura);
-  
-  // Redondear el resultado a dos decimales
-  formImc = Math.round(imc * 100) / 100;
-  
-  return formImc;
-}
+//--------Obtener IMC-----------
 
+const imc = calcularIMC(peso, altura);
 
 console.log("Tu IMC es: " + imc);
 console.log("El peso es de: " + peso);
@@ -433,4 +422,17 @@ function calculateAge(diaField, mesField, yearField) {
     }
     return age;
   };
-  
+  function calcularIMC(pesoField, alturaField) {
+    const peso = parseInt(pesoField.value);
+    const altura = parseInt(alturaField.value);
+    // Convertir la altura a metros
+    altura = altura / 100;
+    
+    // Calcular el IMC
+    let formImc = peso / (altura * altura);
+    
+    // Redondear el resultado a dos decimales
+    formImc = Math.round(formImc * 100) / 100;
+    
+    return formImc;
+  }
