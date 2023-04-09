@@ -8,6 +8,7 @@ const submitBtn = document.querySelector('.submit-btn');
 
 window.addEventListener('load', () => {
   hideAllSteps();
+  showStep(currentStep);
 });
 
 let currentStep = 0;
