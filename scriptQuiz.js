@@ -6,7 +6,7 @@ const prevBtns = form.querySelectorAll('.prev-btn');
 const submitSection = document.querySelector('.submit-section');
 const submitBtn = document.querySelector('.submit-btn');
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
   hideAllSteps();
   showStep(currentStep);
 });
