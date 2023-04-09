@@ -12,6 +12,10 @@ hideAllSteps();
 showStep(currentStep);
 //-----------Función para ocultar pasos---------------
 function hideAllSteps() {
+  window.addEventListener('load', () => {
+    hideAllSteps();
+  });
+  
   formSteps.forEach((step) => {
     step.style.display = 'none';
   });
