@@ -6,16 +6,15 @@ const prevBtns = form.querySelectorAll('.prev-btn');
 const submitSection = document.querySelector('.submit-section');
 const submitBtn = document.querySelector('.submit-btn');
 
+window.addEventListener('load', () => {
+  hideAllSteps();
+});
 
 let currentStep = 0;
 hideAllSteps();
 showStep(currentStep);
 //-----------Función para ocultar pasos---------------
 function hideAllSteps() {
-  window.addEventListener('load', () => {
-    hideAllSteps();
-  });
-  
   formSteps.forEach((step) => {
     step.style.display = 'none';
   });
