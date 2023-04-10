@@ -146,6 +146,15 @@ function validateCurrentStep() {
       } else {
         return true;
       }
+    case 9:
+      console.log("Validando case 8");
+      let selectedVeg = $('input[name=enfermedades]:checked');
+      if (selectedEnf.length === 0) {
+        alert('Por favor, seleccione una respuesta.');
+        return false;
+      } else {
+        return true;
+      }
   }
 }
 function handleNextButtonClick(e) {
@@ -180,7 +189,7 @@ prevBtns.forEach((btn) => {
   btn.addEventListener('click', handlePrevButtonClick);
 });
 submitBtn.addEventListener('click', (e) => {
-    /* e.preventDefault(); */
+     e.preventDefault();
     const nombreInput = document.querySelector('#nombre');
     const correoInput = document.querySelector('#correo');
     const validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
