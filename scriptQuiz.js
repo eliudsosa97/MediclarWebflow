@@ -180,7 +180,7 @@ prevBtns.forEach((btn) => {
   btn.addEventListener('click', handlePrevButtonClick);
 });
 submitBtn.addEventListener('click', (e) => {
-    /* e.preventDefault(); */
+     e.preventDefault(); 
     const nombreInput = document.querySelector('#nombre');
     const correoInput = document.querySelector('#correo');
     const validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
@@ -371,7 +371,18 @@ if (age >= 6 && age <8 && sexo === F){
 } else {
   console.log("Es menor de 6 años");
 }
-console.log(estatusImc);
+if (estatusImc === 0){
+  estatusImc = "bajo";
+} else if (estatusImc === 1){
+  estatusImc = "normal";
+} else if (estatusImc === 2){
+  estatusImc = "sobrepeso"
+} else if (estatusImc === 3){
+  estatusImc = "obesidad";
+} else {
+  estatusImc = "no determinado";
+}
+
 
 //------Obtener respuesta ultimo estudio---------------
     const option1S3 = document.getElementById("op1_step3");
@@ -542,6 +553,7 @@ console.log(estatusImc);
     console.log("SEXO : " + sexo);
     console.log("EDAD : " + age);
     console.log("IMC es de : " + imc);
+    console.log("Tu imc es: " + estatusImc);
     console.log("CORREO : " + correoInput.value);
     const perfilDiv = document.getElementById("card-perfil");
     const mensaje = `Nombre: ${nombreInput.value} <br> Sexo: ${sexo} <br> Edad: ${age} <br> Índice de masa corporal: ${imc}`;
