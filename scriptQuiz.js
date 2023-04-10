@@ -380,17 +380,7 @@ if (age >= 6 && age <8 && sexo === F){
 } else {
   console.log("Es menor de 6 años");
 }
-/* if (estatusImc === 0){
-  estatusImc = "Riesgo de desnutrición";
-} else if (estatusImc === 1){
-  estatusImc = "normalidad";
-} else if (estatusImc === 2){
-  estatusImc = "sobrepeso"
-} else if (estatusImc === 3){
-  estatusImc = "obesidad";
-} else {
-  estatusImc = "no determinado";
-} */
+ 
 
 
 //------Obtener respuesta ultimo estudio---------------
@@ -556,19 +546,7 @@ if (age >= 6 && age <8 && sexo === F){
       console.log("No se selecciono ninguna respuesta de enfermedades");
     }
 
-    //-----------Obtener todos los datos-----------
-
-    console.log("NOMBRE : " + nombreInput.value);
-    console.log("SEXO : " + sexo);
-    console.log("EDAD : " + age);
-    console.log("IMC es de : " + imc);
-    console.log("Tu imc es: " + estatusImc);
-    console.log("CORREO : " + correoInput.value);
-    const perfilDiv = document.getElementById("card-perfil");
-    const mensaje = `Nombre: ${nombreInput.value} <br> Sexo: ${sexo} <br> Edad: ${age} <br> Índice de masa corporal: ${imc} <br> Tu imc indica que estás en el rango de: ${estatusImc}`;
-    perfilDiv.innerHTML = mensaje;
     
-          perfilDiv.classList.add("card-perfil");
 
 
 
@@ -656,6 +634,32 @@ if (age >= 19 && age <35){
         }
       }
     }
+
+    if (estatusImc === 0){
+      estatusImc = "Riesgo de desnutrición";
+    } else if (estatusImc === 1){
+      estatusImc = "normalidad";
+    } else if (estatusImc === 2){
+      estatusImc = "sobrepeso"
+    } else if (estatusImc === 3){
+      estatusImc = "obesidad";
+    } else {
+      estatusImc = "no determinado";
+    } 
+
+    //-----------Obtener todos los datos-----------
+
+    console.log("NOMBRE : " + nombreInput.value);
+    console.log("SEXO : " + sexo);
+    console.log("EDAD : " + age);
+    console.log("IMC es de : " + imc);
+    console.log("Tu imc es: " + estatusImc);
+    console.log("CORREO : " + correoInput.value);
+    const perfilDiv = document.getElementById("card-perfil");
+    const mensaje = `Nombre: ${nombreInput.value} <br> Sexo: ${sexo} <br> Edad: ${age} <br> Índice de masa corporal: ${imc} <br> Tu imc indica que estás en el rango de: ${estatusImc}`;
+    perfilDiv.innerHTML = mensaje;
+    
+          perfilDiv.classList.add("card-perfil");
 
 console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
