@@ -180,7 +180,7 @@ prevBtns.forEach((btn) => {
   btn.addEventListener('click', handlePrevButtonClick);
 });
 submitBtn.addEventListener('click', (e) => {
-     e.preventDefault(); 
+    /* e.preventDefault(); */
     const nombreInput = document.querySelector('#nombre');
     const correoInput = document.querySelector('#correo');
     const validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
@@ -371,17 +371,17 @@ if (age >= 6 && age <8 && sexo === F){
 } else {
   console.log("Es menor de 6 años");
 }
-if (estatusImc === 0){
-  estatusImc = "bajo";
+/* if (estatusImc === 0){
+  estatusImc = "Riesgo de desnutrición";
 } else if (estatusImc === 1){
-  estatusImc = "normal";
+  estatusImc = "normalidad";
 } else if (estatusImc === 2){
   estatusImc = "sobrepeso"
 } else if (estatusImc === 3){
   estatusImc = "obesidad";
 } else {
   estatusImc = "no determinado";
-}
+} */
 
 
 //------Obtener respuesta ultimo estudio---------------
@@ -556,7 +556,7 @@ if (estatusImc === 0){
     console.log("Tu imc es: " + estatusImc);
     console.log("CORREO : " + correoInput.value);
     const perfilDiv = document.getElementById("card-perfil");
-    const mensaje = `Nombre: ${nombreInput.value} <br> Sexo: ${sexo} <br> Edad: ${age} <br> Índice de masa corporal: ${imc}`;
+    const mensaje = `Nombre: ${nombreInput.value} <br> Sexo: ${sexo} <br> Edad: ${age} <br> Índice de masa corporal: ${imc} <br> Tu imc indica que estás en el rango de: ${estatusImc}`;
     perfilDiv.innerHTML = mensaje;
     
           perfilDiv.classList.add("card-perfil");
@@ -565,16 +565,89 @@ if (estatusImc === 0){
 
 //--------Algoritomo de recomendacion---------
 let recomendacion = '';
-if (age < 39 && sexo === 'M') {
-  recomendacion = 'Hombres 40';
-} else if (age > 59 && sexo === 'F') {
-  recomendacion = 'adultoMayorMujer';
-} else if (age < 15){
-    recomendacion = 'kids';
-} 
-else {
-  recomendacion = 'basico';
-}
+if (age >= 19 && age <35){
+      if (estatusImc === 0 || estatusImc > 1){
+        recomendacion = 'adultoJovenA';
+      } else if (answerStep3 === 5){
+        recomendacion = 'adultoJovenA';
+      } else if (answerTabaco === "si"){
+        recomendacion ='adultoJovenA';
+      } else if (answerAlcohol === 1){
+        recomendacion ='adultoJovenA';
+      } else if (answerEjercicio === 5){
+        recomendacion ='adultoJovenA';
+      } else {
+        recomendacion ='adultoJovenP';
+      }
+    } else if (age > 6 && age < 15){
+      recomendacion ='ninos';
+    } else if (age < 6){
+      recomendacion = 'pediatra';
+      console.log("Menor de 6 años debe ir a pediatra");
+    } else if (age > 14 && age < 19){
+      recomendacion = 'basico';
+    } else if (age >35 && age < 59){
+      if (sexo === "F"){
+        if (estatusImc === 0 || estatusImc > 1){
+          recomendacion = 'mayores40MA';
+        } else if (answerStep3 >=4){
+          recomendacion = 'mayores40MA';
+        } else if (answerTabaco === "si"){
+          recomendacion ='mayores40MA';
+        } else if (answerAlcohol === 1){
+          recomendacion ='mayores40MA';
+        } else if (answerEjercicio === 5){
+          recomendacion ='mayores40MA';
+        } else {
+          recomendacion ='mayores40MP';
+        }
+      } else if (sexo === "M"){
+        if (estatusImc === 0 || estatusImc > 1){
+          recomendacion = 'mayores40A';
+        } else if (answerStep3 >=4){
+          recomendacion = 'mayores40A';
+        } else if (answerTabaco === "si"){
+          recomendacion ='mayores40A';
+        } else if (answerAlcohol === 1){
+          recomendacion ='mayores40A';
+        } else if (answerEjercicio === 5){
+          recomendacion ='mayores40A';
+        } else {
+          recomendacion ='mayores40P';
+        }
+      }
+    } else if (age > 59){
+      if (sexo === "F"){
+        if (estatusImc === 0 || estatusImc > 1){
+          recomendacion = 'adultoMayorMA';
+        } else if (answerStep3 >=4){
+          recomendacion = 'adultoMayorMA';
+        } else if (answerTabaco === "si"){
+          recomendacion ='adultoMayorMA';
+        } else if (answerAlcohol === 1){
+          recomendacion ='adultoMayorMA';
+        } else if (answerEjercicio === 5){
+          recomendacion ='adultoMayorMA';
+        } else {
+          recomendacion ='adultoMayorMP';
+        }
+      } else if (sexo === "M"){
+        if (estatusImc === 0 || estatusImc > 1){
+          recomendacion = 'adultoMayorA';
+        } else if (answerStep3 >=4){
+          recomendacion = 'adultoMayorA';
+        } else if (answerTabaco === "si"){
+          recomendacion ='adultoMayorA';
+        } else if (answerAlcohol === 1){
+          recomendacion ='adultoMayorA';
+        } else if (answerEjercicio === 5){
+          recomendacion ='adultoMayorA';
+        } else {
+          recomendacion ='adultoMayorP';
+        }
+      }
+    }
+
 console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
 let checkup = document.getElementById(recomendacion);
