@@ -227,7 +227,7 @@ console.log("Tu altura es de: " + altura.value);
 //-------Calcular imc segun su edad----------
 
 let estatusImc;
-if (age >= 6 && age <8 && sexo === F){
+if (age >= 6 && age <8 && sexo === 'F'){
   if (imc <= 12.70){
     estatusImc = 0;
   } else if (imc >= 12.80 && imc <= 16.80){
@@ -237,7 +237,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age >= 8 && age <10 && sexo === F){
+} else if (age >= 8 && age <10 && sexo === 'F'){
   if (imc <= 12.9){
     estatusImc = 0;
   } else if (imc >= 13 && imc <= 17.6){
@@ -247,7 +247,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age >= 10 && age <12 && sexo === F){
+} else if (age >= 10 && age <12 && sexo === 'F'){
   if (imc <= 13.1){
     estatusImc = 0;
   } else if (imc >= 13.2 && imc <= 18.9){
@@ -257,7 +257,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age >= 12 && age <14 && sexo === F){
+} else if (age >= 12 && age <14 && sexo === 'F'){
   if (imc <= 14.4){
     estatusImc = 0;
   } else if (imc >= 14.5 && imc <= 20.7){
@@ -267,7 +267,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age >= 14 && age <16 && sexo === F){
+} else if (age >= 14 && age <16 && sexo === 'F'){
   if (imc <= 15.4){
     estatusImc = 0;
   } else if (imc >= 15.5 && imc <= 22.6){
@@ -277,7 +277,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age >= 16 && age < 18 && sexo === F){
+} else if (age >= 16 && age < 18 && sexo === 'F'){
   if (imc <= 16.2){
     estatusImc = 0;
   } else if (imc >= 16.3 && imc <= 24){
@@ -287,7 +287,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age === 18 && sexo === F){
+} else if (age === 18 && sexo === 'F'){
   if (imc <= 16.4){
     estatusImc = 0;
   } else if (imc >= 16.5 && imc <= 24.7){
@@ -297,7 +297,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age >= 6 && age < 8 && sexo === M){
+} else if (age >= 6 && age < 8 && sexo === 'M'){
   if (imc <= 13){
     estatusImc = 0;
   } else if (imc >= 13.1 && imc <= 16.7){
@@ -307,7 +307,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age >= 8 && age < 10 && sexo === M){
+} else if (age >= 8 && age < 10 && sexo === 'M'){
   if (imc <= 13.3){
     estatusImc = 0;
   } else if (imc >= 13.4 && imc <= 17.3){
@@ -317,7 +317,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age >= 10 && age < 12 && sexo === M){
+} else if (age >= 10 && age < 12 && sexo === 'M'){
   if (imc <= 13.7){
     estatusImc = 0;
   } else if (imc >= 13.8 && imc <= 18.4){
@@ -327,7 +327,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age >= 12 && age < 14 && sexo === M){
+} else if (age >= 12 && age < 14 && sexo === 'M'){
   if (imc <= 14.5){
     estatusImc = 0;
   } else if (imc >= 14.6 && imc <= 19.8){
@@ -337,7 +337,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age >= 14 && age < 16 && sexo === M){
+} else if (age >= 14 && age < 16 && sexo === 'M'){
   if (imc <= 15.5){
     estatusImc = 0;
   } else if (imc >= 15.6 && imc <= 21.7){
@@ -347,7 +347,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age >= 16 && age < 18 && sexo === M){
+} else if (age >= 16 && age < 18 && sexo === 'M'){
   if (imc <= 16.5){
     estatusImc = 0;
   } else if (imc >= 16.6 && imc <= 23.4){
@@ -357,7 +357,7 @@ if (age >= 6 && age <8 && sexo === F){
   } else {
     estatusImc = 3;
   }
-} else if (age === 18 && sexo === M){
+} else if (age === 18 && sexo === 'M'){
   if (imc <= 17.3){
     estatusImc = 0;
   } else if (imc >= 17.4 && imc <= 24.8){
