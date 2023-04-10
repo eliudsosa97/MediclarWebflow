@@ -646,7 +646,11 @@ if (age >= 19 && age <35){
     } else {
       estatusImc = "no determinado";
     } 
+    //----------Algoritmo de recomendación extra--------------
 
+    let recomExtra = 'extra';
+
+    
     //-----------Obtener todos los datos-----------
 
     console.log("NOMBRE : " + nombreInput.value);
@@ -663,6 +667,8 @@ if (age >= 19 && age <35){
 
 console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
+let extra = document.getElementById(recomExtra);
+extra.style.display ='block';
 let checkup = document.getElementById(recomendacion);
 checkup.style.display = 'block';
 submitSection.style.display = 'none'; 
