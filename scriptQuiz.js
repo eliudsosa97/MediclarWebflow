@@ -668,7 +668,7 @@ if (age >= 19 && age <35){
 console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
 let extra = document.getElementById(recomExtra);
-extra.style.display ='block';
+extra.style.display ='grid';
 let checkup = document.getElementById(recomendacion);
 checkup.style.display = 'block';
 submitSection.style.display = 'none'; 
