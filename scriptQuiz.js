@@ -148,7 +148,7 @@ function validateCurrentStep() {
       }
     case 9:
       console.log("Validando case 8");
-      let selectedVeg = $('input[name=enfermedades]:checked');
+      let selectedVeg = $('input[name=vegetariano]:checked');
       if (selectedEnf.length === 0) {
         alert('Por favor, seleccione una respuesta.');
         return false;
