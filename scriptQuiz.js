@@ -498,9 +498,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
     const sexual1 = document.getElementById("sexual1");
     const sexual2 = document.getElementById("sexual2");
     const sexual3 = document.getElementById("sexual3");
-    const sexual4 = document.getElementById("sexual4");
-    const sexual5 = document.getElementById("sexual5");
-    const sexual6 = document.getElementById("sexual6");
+    
     
 
     let answerSexual;
@@ -510,13 +508,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
       answerSexual = sexual2.value;
     } else if (sexual3.checked){
       answerSexual = sexual3.value;
-    } else if (sexual4.checked){
-      answerSexual = sexual4.value;
-    } else if (sexual5.checked){
-      answerSexual = sexual5.value;
-    } else if (sexual6.checked){
-      answerSexual = sexual6.value;
-    }else {
+    } else {
       console.log("No se selecciono ninguna respuesta de sexual");
     }
 
@@ -546,7 +538,19 @@ if (age >= 6 && age <8 && sexo === 'F'){
       console.log("No se selecciono ninguna respuesta de enfermedades");
     }
 
-    
+    //-----------Obtener respuesta de vegetariano-----------------------
+    const vegetarianoSi = document.getElementById("vegetarianoSi");
+    const vegetarianoNo = document.getElementById("vegetarianoNo");
+
+    let answerVegetariano;
+    if(vegetarianoSi.checked){
+      answerVegetariano = vegetarianoSi.value;
+    } else if (vegetarianoNo.checked) {
+      answerVegetariano = vegetarianoNo.value;
+    } else {
+      console.log("No se seleciiono ninguna respuesta de Consumidor");
+    }
+
 
 
 
@@ -634,6 +638,7 @@ if (age >= 19 && age <35){
         }
       }
     }
+    //--------------------cambiar estatus de imc--------------
 
     if (estatusImc === 0){
       estatusImc = "Riesgo de desnutrición";
@@ -648,7 +653,21 @@ if (age >= 19 && age <35){
     } 
     //----------Algoritmo de recomendación extra--------------
 
-    let recomExtra = 'extra';
+    let recomExtra = '';
+
+    if (answerVegetariano === 'si'){
+      recomExtra = 'vegetariano';
+    } else if (sexo === 'M' && answerSexual === 1 && age <50){
+      recomExtra = 'saludSexualH';
+    } else if (sexo === 'F' && answerSexual === 1 && age <50){
+      recomExtra = 'saludSexualM';
+    } else if (answerEjercicio <=2){
+      recomExtra = 'sport';
+    } else {
+      recomExtra = 'ningunaRecom';
+    }
+
+
 
     
     //-----------Obtener todos los datos-----------
@@ -659,11 +678,11 @@ if (age >= 19 && age <35){
     console.log("IMC es de : " + imc);
     console.log("Tu imc es: " + estatusImc);
     console.log("CORREO : " + correoInput.value);
-    const perfilDiv = document.getElementById("card-perfil");
-    const mensaje = `Nombre: ${nombreInput.value} <br> Sexo: ${sexo} <br> Edad: ${age} <br> Índice de masa corporal: ${imc} <br> Tu imc indica que estás en el rango de: ${estatusImc}`;
+    const perfilDiv = document.getElementById("encabezado");
+    const mensaje = `Gracias por llenar tu cuestionario, <strong> ${nombreInput.value} </strong> nos importa tu salud`;
     perfilDiv.innerHTML = mensaje;
     
-          perfilDiv.classList.add("card-perfil");
+          perfilDiv.classList.add("encabezado-karen");
 
 console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
