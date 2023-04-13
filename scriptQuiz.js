@@ -679,22 +679,14 @@ if (age >= 19 && age <35){
     console.log("Tu imc es: " + estatusImc);
     console.log("CORREO : " + correoInput.value);
 
-    // Obtener el div padre
-var divPadre = document.getElementById("header-recom");
-
-// Crear un nuevo div hijo
-var divHijo = document.createElement("div");
-divHijo.innerHTML = `Gracias por llenar tu cuestionario, <strong> ${nombreInput.value} </strong> nos importa tu salud`;
-
-// Añadir el div hijo al div padre
-divPadre.appendChild(divHijo);
 
 
-    /* const perfilDiv = document.getElementById("encabezado");
+
+    const perfilDiv = document.getElementById("encabezado");
     const mensaje = `Gracias por llenar tu cuestionario, <strong> ${nombreInput.value} </strong> nos importa tu salud`;
     perfilDiv.innerHTML = mensaje;
     
-          perfilDiv.classList.add("encabezado-karen"); */
+          perfilDiv.classList.add("encabezado-karen");
 
 console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
