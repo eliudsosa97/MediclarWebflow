@@ -170,7 +170,7 @@ function handleNextButtonClick(e) {
 
       } else {
         hideAllSteps();
-        submitSection.style.display = 'block';
+        submitSection.style.display = 'flex';
       }
     } 
   }
@@ -573,7 +573,7 @@ if (age >= 19 && age <35){
       console.log("Menor de 6 años debe ir a pediatra");
     } else if (age > 14 && age < 19){
       recomendacion = 'basico';
-    } else if (age >35 && age < 59){
+    } else if (age >=35 && age <= 59){
       if (sexo === "F"){
         if (estatusImc === 0 || estatusImc > 1){
           recomendacion = 'mayores40MA';
@@ -668,7 +668,7 @@ if (age >= 19 && age <35){
 console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
 let extra = document.getElementById(recomExtra);
-extra.style.display ='grid';
+extra.style.display ='block';
 let checkup = document.getElementById(recomendacion);
 checkup.style.display = 'block';
 submitSection.style.display = 'none'; 
