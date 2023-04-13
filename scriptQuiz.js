@@ -23,7 +23,7 @@ function hideAllSteps() {
 }
 
 function showStep(stepIndex) {
-  formSteps[stepIndex].style.display = 'block';
+  formSteps[stepIndex].style.display = 'flex';
 }
 //---------Validar los pasos----------------
 function validateCurrentStep() {
