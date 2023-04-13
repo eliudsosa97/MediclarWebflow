@@ -692,7 +692,7 @@ if (age >= 19 && age <35){
           const mensajeDatos = `Nombre: ${nombreInput.value} <br> Edad: ${age} <br> IMC: ${imc} <br> Según tu índice de masa corporal estás con: ${estatusImc}`;
           datosDiv.innerHTML = mensajeDatos;
           
-                perfilDiv.classList.add("card-perfil-datos");
+                datosDiv.classList.add("card-perfil-datos");
 
 console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
