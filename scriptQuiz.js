@@ -539,7 +539,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
     }
 
     //-----------Obtener respuesta de vegetariano-----------------------
-    const vegetarianoSi = document.getElementById("vegetarianoSi");
+   /*  const vegetarianoSi = document.getElementById("vegetarianoSi");
     const vegetarianoNo = document.getElementById("vegetarianoNo");
 
     let answerVegetariano;
@@ -550,7 +550,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
     } else {
       console.log("No se seleciiono ninguna respuesta de Consumidor");
     }
-
+ */
 
 
 
@@ -653,7 +653,7 @@ if (age >= 19 && age <35){
     } 
     //----------Algoritmo de recomendación extra--------------
 
-    let recomExtra = '';
+  /*   let recomExtra = '';
 
     if (answerVegetariano === 'si'){
       recomExtra = 'vegetariano';
@@ -665,7 +665,7 @@ if (age >= 19 && age <35){
       recomExtra = 'sport';
     } else {
       recomExtra = 'ningunaRecom';
-    }
+    } */
 
 
 
@@ -678,16 +678,28 @@ if (age >= 19 && age <35){
     console.log("IMC es de : " + imc);
     console.log("Tu imc es: " + estatusImc);
     console.log("CORREO : " + correoInput.value);
-    const perfilDiv = document.getElementById("encabezado");
+
+    // Obtener el div padre
+var divPadre = document.getElementById("header-recom");
+
+// Crear un nuevo div hijo
+var divHijo = document.createElement("div");
+divHijo.innerHTML = `Gracias por llenar tu cuestionario, <strong> ${nombreInput.value} </strong> nos importa tu salud`;
+
+// Añadir el div hijo al div padre
+divPadre.appendChild(divHijo);
+
+
+    /* const perfilDiv = document.getElementById("encabezado");
     const mensaje = `Gracias por llenar tu cuestionario, <strong> ${nombreInput.value} </strong> nos importa tu salud`;
     perfilDiv.innerHTML = mensaje;
     
-          perfilDiv.classList.add("encabezado-karen");
+          perfilDiv.classList.add("encabezado-karen"); */
 
 console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
-let extra = document.getElementById(recomExtra);
-extra.style.display ='block';
+/* let extra = document.getElementById(recomExtra);
+extra.style.display ='block'; */
 let checkup = document.getElementById(recomendacion);
 checkup.style.display = 'block';
 submitSection.style.display = 'none'; 
