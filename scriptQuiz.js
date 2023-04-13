@@ -686,7 +686,13 @@ if (age >= 19 && age <35){
     const mensaje = `Gracias por llenar tu cuestionario, <strong> ${nombreInput.value} </strong> nos importa tu salud`;
     perfilDiv.innerHTML = mensaje;
     
-          perfilDiv.classList.add("encabezado-karen");
+          perfilDiv.classList.add("card-perfil");
+
+          const datosDiv = document.getElementById("encabezado-datos");
+          const mensajeDatos = `Nombre: ${nombreInput.value} <br> Edad: ${age} <br> IMC: ${imc} <br> Según tu índice de masa corporal estás con: ${estatusImc}`;
+          datosDiv.innerHTML = mensajeDatos;
+          
+                perfilDiv.classList.add("card-perfil-datos");
 
 console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
