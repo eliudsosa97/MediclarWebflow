@@ -539,7 +539,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
     }
 
     //-----------Obtener respuesta de vegetariano-----------------------
-    const vegetarianoSi = document.getElementById("vegeSi");
+    const vegetarianoSi = document.getElementById("vegSi");
     const vegetarianoNo = document.getElementById("vegNo");
 
     let answerVegetariano;
