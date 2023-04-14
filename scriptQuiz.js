@@ -539,8 +539,8 @@ if (age >= 6 && age <8 && sexo === 'F'){
     }
 
     //-----------Obtener respuesta de vegetariano-----------------------
-    const vegetarianoSi = document.getElementById("vegetarianoSi");
-    const vegetarianoNo = document.getElementById("vegetarianoNo");
+    const vegetarianoSi = document.getElementById("vegeSi");
+    const vegetarianoNo = document.getElementById("vegNo");
 
     let answerVegetariano;
     if(vegetarianoSi.checked){
@@ -732,19 +732,19 @@ if (recomExtraUno !== false) {
 if (recomExtraDos !== false) {
   let extraDos = document.getElementById(recomExtraDos);
   if (extraDos) {
-    extraUno.style.display = 'block';
+    extraDos.style.display = 'block';
   }
 }
 if (recomExtraTres !== false) {
   let extraTres = document.getElementById(recomExtraTres);
   if (extraTres) {
-    extraUno.style.display = 'block';
+    extraTres.style.display = 'block';
   }
 }
 if (recomExtraCuatro !== false) {
   let extraCuatro = document.getElementById(recomExtraCuatro);
   if (extraCuatro) {
-    extraUno.style.display = 'block';
+    extraCuatro.style.display = 'block';
   }
 }
 
