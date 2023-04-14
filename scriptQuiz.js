@@ -652,23 +652,31 @@ if (age >= 19 && age <35){
       estatusImc = "no determinado";
     } 
     //----------Algoritmo de recomendación extra--------------
-
-  /*   let recomExtra = '';
+    let recomExtraUno = '';
+    let recomExtraDos = '';
+    let recomExtraTres = '';
+    let recomExtraCuatro = '';
 
     if (answerVegetariano === 'si'){
-      recomExtra = 'vegetariano';
-    } else if (sexo === 'M' && answerSexual === 1 && age <50){
-      recomExtra = 'saludSexualH';
-    } else if (sexo === 'F' && answerSexual === 1 && age <50){
-      recomExtra = 'saludSexualM';
-    } else if (answerEjercicio <=2){
-      recomExtra = 'sport';
+      recomExtraUno = 'vegetariano';
     } else {
-      recomExtra = 'ningunaRecom';
-    } */
-
-
-
+      recomExtraUno = false;
+    };
+    if (sexo === "M" && age < 59 && answerSexual === 1){
+      recomExtraDos = 'saludSexualH';
+    } else {
+      recomExtraDos = false;
+    };
+    if (sexo === "F" && age < 59 &&  answerSexual === 1){
+      recomExtraTres = 'saludSexualM';
+    } else {
+      recomExtraTres = false;
+    };
+    if (answerEjercicio <= 2 && age < 49){
+      recomExtraCuatro = 'sport';
+    } else {
+      recomExtraCuatro = false;
+    };
     
     //-----------Obtener todos los datos-----------
 
@@ -680,24 +688,71 @@ if (age >= 19 && age <35){
     console.log("CORREO : " + correoInput.value);
 
 
-
+//----------- Mensaje de gracias------------
 
     const perfilDiv = document.getElementById("encabezado");
     const mensaje = `Gracias por llenar tu cuestionario, <strong> ${nombreInput.value} </strong> nos importa tu salud`;
     perfilDiv.innerHTML = mensaje;
     
-          perfilDiv.classList.add("card-perfil");
+    perfilDiv.classList.add("card-perfil");
 
-          const datosDiv = document.getElementById("encabezado-datos");
-          const mensajeDatos = `Nombre: ${nombreInput.value} <br> Edad: ${age} <br> IMC: ${imc} <br> Según tu índice de masa corporal estás con: ${estatusImc}`;
-          datosDiv.innerHTML = mensajeDatos;
-          
-                datosDiv.classList.add("card-perfil-datos");
+
+//----------- Obtener la fecha actual
+
+var fecha = new Date();
+
+//---------- Obtener el día, mes y año
+
+var diaFecha = fecha.getDate();
+var mesFecha = fecha.getMonth() + 1;
+var yearFecha = fecha.getFullYear();
+
+// ----------Mostrar la fecha en el elemento HTML
+
+const fechaDiv = document.getElementById("fecha-actual");
+const mensajeFecha = diaFecha + "/" + mesFecha + "/" + yearFecha;
+
+fechaDiv.innerHTML = mensajeFecha;
+fechaDiv.classList.add("fecha-div");
+
+
+
+
+
+
 
 console.log("recom: " + recomendacion);
 // Cambiar la visibilidad del checkup correspondiente
-/* let extra = document.getElementById(recomExtra);
-extra.style.display ='block'; */
+if (recomExtraUno !== false) {
+  let extraUno = document.getElementById(recomExtraUno);
+  if (extraUno) {
+    extraUno.style.display = 'block';
+  }
+}
+if (recomExtraDos !== false) {
+  let extraDos = document.getElementById(recomExtraDos);
+  if (extraDos) {
+    extraUno.style.display = 'block';
+  }
+}
+if (recomExtraTres !== false) {
+  let extraTres = document.getElementById(recomExtraTres);
+  if (extraTres) {
+    extraUno.style.display = 'block';
+  }
+}
+if (recomExtraCuatro !== false) {
+  let extraCuatro = document.getElementById(recomExtraCuatro);
+  if (extraCuatro) {
+    extraUno.style.display = 'block';
+  }
+}
+
+
+
+
+
+
 let checkup = document.getElementById(recomendacion);
 checkup.style.display = 'block';
 submitSection.style.display = 'none'; 
