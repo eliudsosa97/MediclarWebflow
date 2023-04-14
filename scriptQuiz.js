@@ -662,17 +662,17 @@ if (age >= 19 && age <35){
     } else {
       recomExtraUno = false;
     };
-    if (sexo === "M" && age < 59 && answerSexual === 1){
+    if (sexo === "M" && age < 59 && answerSexual === "1"){
       recomExtraDos = 'saludSexualH';
     } else {
       recomExtraDos = false;
     };
-    if (sexo === "F" && age < 59 &&  answerSexual === 1){
+    if (sexo === "F" && age > 17 && age < 59 &&  answerSexual === "1"){
       recomExtraTres = 'saludSexualM';
     } else {
       recomExtraTres = false;
     };
-    if (answerEjercicio <= 2 && age < 49){
+    if (answerEjercicio <= 2 && age > 17 && age < 49){
       recomExtraCuatro = 'sport';
     } else {
       recomExtraCuatro = false;
@@ -686,6 +686,8 @@ if (age >= 19 && age <35){
     console.log("IMC es de : " + imc);
     console.log("Tu imc es: " + estatusImc);
     console.log("CORREO : " + correoInput.value);
+    console.log("sexual" + recomExtraDos + "sexual " + recomExtraTres);
+    console.log("sexual value: "+ answerSexual);
 
 
 //----------- Mensaje de gracias------------
