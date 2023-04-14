@@ -539,7 +539,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
     }
 
     //-----------Obtener respuesta de vegetariano-----------------------
-   /*  const vegetarianoSi = document.getElementById("vegetarianoSi");
+    const vegetarianoSi = document.getElementById("vegetarianoSi");
     const vegetarianoNo = document.getElementById("vegetarianoNo");
 
     let answerVegetariano;
@@ -550,7 +550,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
     } else {
       console.log("No se seleciiono ninguna respuesta de Consumidor");
     }
- */
+ 
 
 
 
