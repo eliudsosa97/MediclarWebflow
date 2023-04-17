@@ -31,7 +31,7 @@ function validateCurrentStep() {
     case 0:
       console.log("Validando case 0");
       // Validar fecha de nacimiento
-    const diaField = document.getElementById('dia');
+    const diaField = document.getElementById('dia'); //Hacer todo aqui 
     const mesField = document.getElementById('mes');
     const yearField = document.getElementById('year');
     const dia = parseInt(diaField.value);
@@ -384,26 +384,21 @@ if (age >= 6 && age <8 && sexo === 'F'){
 
 
 //------Obtener respuesta ultimo estudio---------------
-    const option1S3 = document.getElementById("op1_step3");
-    const option2S3 = document.getElementById("op2_step3");
-    const option3S3 = document.getElementById("op3_step3");
-    const option4S3 = document.getElementById("op4_step3");
-    const option5S3 = document.getElementById("op5_step3");
+    const ultEstudio1 = document.getElementById("ult-estudio1");
+    const ultEstudio2 = document.getElementById("ult-estudio2");
+    const ultEstudio3 = document.getElementById("ult-estudio3");
+    
 
-    let answerStep3;
+    let answerUltEstudio;
 
-    if(option1S3.checked){
-        answerStep3 = option1S3.value;
-    } else if (option2S3.checked){
-        answerStep3 = option2S3.value;
-    }else if (option3S3.checked){
-        answerStep3 = option3S3.value;
-    }else if (option4S3.checked){
-        answerStep3 = option4S3.value;
-    }else if (option5S3.checked){
-        answerStep3 = option5S3.value;
+    if(ultEstudio1.checked){
+        answerUltEstudio = ultEstudio1.value;
+    } else if (ultEstudio2.checked){
+        answerUltEstudio = ultEstudio2.value;
+    }else if (ultEstudio3.checked){
+        answerUltEstudio = ultEstudio3.value;
     }else {
-        console.log("No se selecciono ninguna respuesta");
+        console.log("No se seleccionó ninguna respuesta");
     }
 
     //-------Obtener respuesta del descanso--------
@@ -432,7 +427,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
     const ejercicio2 = document.getElementById("ejercicio2");
     const ejercicio3 = document.getElementById("ejercicio3");
     const ejercicio4 = document.getElementById("ejercicio4");
-    const ejercicio5 = document.getElementById("ejercicio5");
+    
 
     let answerEjercicio;
     if(ejercicio1.checked){
@@ -443,8 +438,6 @@ if (age >= 6 && age <8 && sexo === 'F'){
       answerEjercicio = ejercicio3.value;
     } else if (ejercicio4.checked){
       answerEjercicio = ejercicio4.value;
-    } else if (ejercicio5.checked){
-      answerEjercicio = ejercicio5.value;
     } else {
       console.log("No se selecciono ninguna respuesta de ejercicio");
     }
@@ -478,7 +471,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
     const alcohol2 = document.getElementById("alcohol2");
     const alcohol3 = document.getElementById("alcohol3");
     const alcohol4 = document.getElementById("alcohol4");
-    const alcohol5 = document.getElementById("alcohol5");
+
 
     let answerAlcohol;
     if(alcohol1.checked){
@@ -489,9 +482,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
       answerAlcohol = alcohol3.value;
     } else if (alcohol4.checked){
       answerAlcohol = alcohol4.value;
-    } else if (alcohol5.checked){
-      answerAlcohol = alcohol5.value;
-    } else {
+    }  else {
       console.log("No se selecciono ninguna respuesta de alcohol");
     }
     //-----------Obtener respuesta Sexual-------------
@@ -559,13 +550,13 @@ let recomendacion = '';
 if (age >= 19 && age <35){
       if (estatusImc === 0 || estatusImc > 1){
         recomendacion = 'adultoJovenA';
-      } else if (answerStep3 === 5){
+      } else if (answerUltEstudio === 3){
         recomendacion = 'adultoJovenA';
       } else if (answerTabaco === "si"){
         recomendacion ='adultoJovenA';
-      } else if (answerAlcohol === 1){
+      } else if (answerAlcohol === 4){
         recomendacion ='adultoJovenA';
-      } else if (answerEjercicio === 5){
+      } else if (answerEjercicio === 4){
         recomendacion ='adultoJovenA';
       } else {
         recomendacion ='adultoJovenP';
@@ -581,13 +572,13 @@ if (age >= 19 && age <35){
       if (sexo === "F"){
         if (estatusImc === 0 || estatusImc > 1){
           recomendacion = 'mayores40MA';
-        } else if (answerStep3 >=4){
+        } else if (answerUltEstudio === 3){
           recomendacion = 'mayores40MA';
         } else if (answerTabaco === "si"){
           recomendacion ='mayores40MA';
-        } else if (answerAlcohol === 1){
+        } else if (answerAlcohol === 4){
           recomendacion ='mayores40MA';
-        } else if (answerEjercicio === 5){
+        } else if (answerEjercicio === 4){
           recomendacion ='mayores40MA';
         } else {
           recomendacion ='mayores40MP';
@@ -595,13 +586,13 @@ if (age >= 19 && age <35){
       } else if (sexo === "M"){
         if (estatusImc === 0 || estatusImc > 1){
           recomendacion = 'mayores40A';
-        } else if (answerStep3 >=4){
+        } else if (answerUltEstudio === 3){
           recomendacion = 'mayores40A';
         } else if (answerTabaco === "si"){
           recomendacion ='mayores40A';
-        } else if (answerAlcohol === 1){
+        } else if (answerAlcohol === 4){
           recomendacion ='mayores40A';
-        } else if (answerEjercicio === 5){
+        } else if (answerEjercicio === 4){
           recomendacion ='mayores40A';
         } else {
           recomendacion ='mayores40P';
@@ -611,13 +602,13 @@ if (age >= 19 && age <35){
       if (sexo === "F"){
         if (estatusImc === 0 || estatusImc > 1){
           recomendacion = 'adultoMayorMA';
-        } else if (answerStep3 >=4){
+        } else if (answerUltEstudio === 3){
           recomendacion = 'adultoMayorMA';
         } else if (answerTabaco === "si"){
           recomendacion ='adultoMayorMA';
-        } else if (answerAlcohol === 1){
+        } else if (answerAlcohol === 4){
           recomendacion ='adultoMayorMA';
-        } else if (answerEjercicio === 5){
+        } else if (answerEjercicio === 4){
           recomendacion ='adultoMayorMA';
         } else {
           recomendacion ='adultoMayorMP';
@@ -625,13 +616,13 @@ if (age >= 19 && age <35){
       } else if (sexo === "M"){
         if (estatusImc === 0 || estatusImc > 1){
           recomendacion = 'adultoMayorA';
-        } else if (answerStep3 >=4){
+        } else if (answerUltEstudio === 3){
           recomendacion = 'adultoMayorA';
         } else if (answerTabaco === "si"){
           recomendacion ='adultoMayorA';
-        } else if (answerAlcohol === 1){
+        } else if (answerAlcohol === 4){
           recomendacion ='adultoMayorA';
-        } else if (answerEjercicio === 5){
+        } else if (answerEjercicio === 4){
           recomendacion ='adultoMayorA';
         } else {
           recomendacion ='adultoMayorP';
@@ -662,12 +653,12 @@ if (age >= 19 && age <35){
     } else {
       recomExtraUno = false;
     };
-    if (sexo === "M" && age < 59 && answerSexual === "1"){
+    if (sexo === "M" && age < 59 && answerSexual === "2"){
       recomExtraDos = 'saludSexualH';
     } else {
       recomExtraDos = false;
     };
-    if (sexo === "F" && age > 17 && age < 59 &&  answerSexual === "1"){
+    if (sexo === "F" && age > 17 && age < 59 &&  answerSexual === "2"){
       recomExtraTres = 'saludSexualM';
     } else {
       recomExtraTres = false;
@@ -693,7 +684,7 @@ if (age >= 19 && age <35){
 //----------- Mensaje de gracias------------
 
     const perfilDiv = document.getElementById("encabezado");
-    const mensaje = `Gracias por llenar tu cuestionario, <strong> ${nombreInput.value} </strong> nos importa tu salud`;
+    const mensaje = `Gracias por llenar tu cuestionario <strong> ${nombreInput.value} </strong> , nos importa tu salud`;
     perfilDiv.innerHTML = mensaje;
     
     perfilDiv.classList.add("card-perfil");
@@ -701,13 +692,13 @@ if (age >= 19 && age <35){
 
 //----------- Obtener la fecha actual
 
-var fecha = new Date();
+let fecha = new Date();
 
 //---------- Obtener el día, mes y año
 
-var diaFecha = fecha.getDate();
-var mesFecha = fecha.getMonth() + 1;
-var yearFecha = fecha.getFullYear();
+let diaFecha = fecha.getDate();
+let mesFecha = fecha.getMonth() + 1;
+let yearFecha = fecha.getFullYear();
 
 // ----------Mostrar la fecha en el elemento HTML
 
@@ -813,3 +804,5 @@ function calculateAge(diaField, mesField, yearField) {
     
     return formImc;
   };
+
+
