@@ -189,7 +189,7 @@ prevBtns.forEach((btn) => {
   btn.addEventListener('click', handlePrevButtonClick);
 });
 submitBtn.addEventListener('click', (e) => {
-     e.preventDefault();
+    e.preventDefault();
     const nombreInput = document.querySelector('#nombre');
     const correoInput = document.querySelector('#correo');
     const validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
@@ -380,7 +380,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
 } else {
   console.log("Es menor de 6 años");
 }
- 
+
 
 
 //------Obtener respuesta ultimo estudio---------------
@@ -741,6 +741,16 @@ if (recomExtraCuatro !== false) {
   }
 }
 
+//------mostrar el heading de otros estudios------
+
+if (recomExtraUno !== false || recomExtraDos !== false || recomExtraTres !== false || recomExtraCuatro !== false) {
+  let otrosDiv = document.getElementById('div-otros');
+  if (otrosDiv) {
+    otrosDiv.style.display = 'block';
+  }
+}
+let footerDiv = document.getElementById('footer-recom');
+footerDiv.style.display = 'block'
 
 
 
