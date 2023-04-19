@@ -141,7 +141,7 @@ function validateCurrentStep() {
       console.log("Validando case 8");
       return true;
     case 9:
-      console.log("Validando case 8");
+      console.log("Validando case 9");
       let selectedVeg = $('input[name=vegetariano]:checked');
       if (selectedVeg.length === 0) {
         alert('Por favor, seleccione una respuesta.');
@@ -183,7 +183,7 @@ prevBtns.forEach((btn) => {
   btn.addEventListener('click', handlePrevButtonClick);
 });
 submitBtn.addEventListener('click', (e) => {
-     e.preventDefault();
+    e.preventDefault();
     const nombreInput = document.querySelector('#nombre');
     const correoInput = document.querySelector('#correo');
     const primerApellido = document.querySelector('#primerApellido')
@@ -375,7 +375,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
 } else {
   console.log("Es menor de 6 años");
 }
- 
+
 
 
 //------Obtener respuesta ultimo estudio---------------
@@ -499,6 +499,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
     }
 
     //-----------Obtener respuesta Enfermedades cronicas-------------
+   
     const diabetes = document.getElementById("diabetes");
     const hipertension = document.getElementById("hipertension");
     const cancer = document.getElementById("cancer");
@@ -506,9 +507,6 @@ if (age >= 6 && age <8 && sexo === 'F'){
     const hepatitis = document.getElementById("hepatitis");
     const ninguna = document.getElementById("ninguna");
 
-
-    
-  
 
     //-----------Obtener respuesta de vegetariano-----------------------
     const vegetarianoSi = document.getElementById("vegSi");
@@ -722,6 +720,16 @@ if (recomExtraCuatro !== false) {
   }
 }
 
+//------mostrar el heading de otros estudios------
+
+if (recomExtraUno !== false || recomExtraDos !== false || recomExtraTres !== false || recomExtraCuatro !== false) {
+  let otrosDiv = document.getElementById('div-otros');
+  if (otrosDiv) {
+    otrosDiv.style.display = 'block';
+  }
+}
+let footerDiv = document.getElementById('footer-recom');
+footerDiv.style.display = 'block'
 
 
 
@@ -785,4 +793,3 @@ function calculateAge(diaField, mesField, yearField) {
     
     return formImc;
   };
-
