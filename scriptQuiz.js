@@ -642,7 +642,7 @@ if (age >= 19 && age <35){
     } else {
       recomExtraTres = false;
     };
-    if (answerEjercicio === 1 && age > 17 && age < 49){
+    if (answerEjercicio === '1' && age > 17 && age < 49){
       recomExtraCuatro = 'sport';
     } else {
       recomExtraCuatro = false;
