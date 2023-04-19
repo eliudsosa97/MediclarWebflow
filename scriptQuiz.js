@@ -139,13 +139,7 @@ function validateCurrentStep() {
       }
     case 8:
       console.log("Validando case 8");
-      let selectedEnf = $('input[name=enfermedades]:checked');
-      if (selectedEnf.length === 0) {
-        alert('Por favor, seleccione una respuesta.');
-        return false;
-      } else {
-        return true;
-      }
+      return true;
     case 9:
       console.log("Validando case 8");
       let selectedVeg = $('input[name=vegetariano]:checked');
@@ -189,12 +183,13 @@ prevBtns.forEach((btn) => {
   btn.addEventListener('click', handlePrevButtonClick);
 });
 submitBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+     e.preventDefault();
     const nombreInput = document.querySelector('#nombre');
     const correoInput = document.querySelector('#correo');
+    const primerApellido = document.querySelector('#primerApellido')
     const validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
-    if (nombreInput.value && (validEmail.test(correoInput.value))){
+    if (nombreInput.value && primerApellido.value && (validEmail.test(correoInput.value))){
     const formData = new FormData(form);
     const entries = formData.entries();
     for (let entry of entries) {
@@ -380,7 +375,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
 } else {
   console.log("Es menor de 6 años");
 }
-
+ 
 
 
 //------Obtener respuesta ultimo estudio---------------
@@ -504,30 +499,16 @@ if (age >= 6 && age <8 && sexo === 'F'){
     }
 
     //-----------Obtener respuesta Enfermedades cronicas-------------
-    const enfermedades1 = document.getElementById("enfermedades1");
-    const enfermedades2 = document.getElementById("enfermedades2");
-    const enfermedades3 = document.getElementById("enfermedades3");
-    const enfermedades4 = document.getElementById("enfermedades4");
-    const enfermedades5 = document.getElementById("enfermedades5");
-    const enfermedades6 = document.getElementById("enfermedades6");
+    const diabetes = document.getElementById("diabetes");
+    const hipertension = document.getElementById("hipertension");
+    const cancer = document.getElementById("cancer");
+    const problemasRenales = document.getElementById("problemas-renales");
+    const hepatitis = document.getElementById("hepatitis");
+    const ninguna = document.getElementById("ninguna");
 
 
-    let answerEnf;
-    if(enfermedades1.checked){
-      answerEnf = enfermedades1.value;
-    } else if (enfermedades2.checked){
-      answerEnf = enfermedades2.value;
-    } else if (enfermedades3.checked){
-      answerEnf = enfermedades3.value;
-    } else if (enfermedades4.checked){
-      answerEnf = enfermedades4.value;
-    } else if (enfermedades5.checked){
-      answerEnf = enfermedades5.value;
-    } else if (enfermedades6.checked){
-      answerEnf = enfermedades6.value;
-    }else {
-      console.log("No se selecciono ninguna respuesta de enfermedades");
-    }
+    
+  
 
     //-----------Obtener respuesta de vegetariano-----------------------
     const vegetarianoSi = document.getElementById("vegSi");
@@ -741,16 +722,6 @@ if (recomExtraCuatro !== false) {
   }
 }
 
-//------mostrar el heading de otros estudios------
-
-if (recomExtraUno !== false || recomExtraDos !== false || recomExtraTres !== false || recomExtraCuatro !== false) {
-  let otrosDiv = document.getElementById('div-otros');
-  if (otrosDiv) {
-    otrosDiv.style.display = 'block';
-  }
-}
-let footerDiv = document.getElementById('footer-recom');
-footerDiv.style.display = 'block'
 
 
 
@@ -814,3 +785,4 @@ function calculateAge(diaField, mesField, yearField) {
     
     return formImc;
   };
+
