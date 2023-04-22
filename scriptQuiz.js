@@ -29,7 +29,7 @@ function showStep(stepIndex) {
 function validateCurrentStep() {
   switch (currentStep) {
     case 0:
-      console.log("Validando case 0");
+      
       // Validar fecha de nacimiento
     const diaField = document.getElementById('dia'); //Hacer todo aqui 
     const mesField = document.getElementById('mes');
@@ -37,7 +37,7 @@ function validateCurrentStep() {
     const dia = parseInt(diaField.value);
     const mes = parseInt(mesField.value);
     const year = parseInt(yearField.value);
-    if (isNaN(dia) || isNaN(mes) || isNaN(year) || dia < 1 || dia > 31 || mes < 1 || mes > 12 || year < 1900 || year > 2015) {
+    if (isNaN(dia) || isNaN(mes) || isNaN(year) || dia < 1 || dia > 31 || mes < 1 || mes > 12 || year < 1900 || year > 2015/* new Date().getFullYear() */) {
         alert('Por favor ingrese una fecha de nacimiento válida.');
         return false;
     }if (mes === 2 && dia > 28) {
@@ -65,7 +65,7 @@ function validateCurrentStep() {
         return true;
       }
     case 1:
-      console.log("Validando case 1");
+      
       //----------------Validar estatura y peso-------------------
       const alturaField = document.getElementById('altura');
             const pesoField = document.getElementById('peso');
@@ -79,7 +79,7 @@ function validateCurrentStep() {
               return false;
             }
     case 2:
-      console.log("Validando case 2");
+      
       let selectedEstudio = $('input[name=estudio]:checked');
       if (selectedEstudio.length === 0) {
         alert('Por favor, seleccione una respuesta.');
@@ -89,7 +89,7 @@ function validateCurrentStep() {
       }
 
     case 3:
-      console.log("Validando case 3");
+      
       let selectedDescanso = $('input[name=descanso]:checked');
       if (selectedDescanso.length === 0) {
         alert('Por favor, seleccione una respuesta.');
@@ -99,7 +99,7 @@ function validateCurrentStep() {
       }
 
     case 4:
-      console.log("Validando case 4");
+      
       let selectedEjercicio = $('input[name=ejercicio]:checked');
       if (selectedEjercicio.length === 0) {
         alert('Por favor, seleccione una respuesta.');
@@ -109,7 +109,7 @@ function validateCurrentStep() {
       }
 
     case 5:
-      console.log("Validando case 5");
+      
       let selectedTabaco = $('input[name=tabaco]:checked');
       let selectedConsumidor = $('input[name=consumidor]:checked');
       if (selectedTabaco.length === 0 || selectedConsumidor.length === 0) {
@@ -120,7 +120,7 @@ function validateCurrentStep() {
       }
     
     case 6:
-      console.log("Validando case 6");
+      
       let selectedAlcohol = $('input[name=alcohol]:checked');
       if (selectedAlcohol.length === 0) {
         alert('Por favor, seleccione una respuesta.');
@@ -129,7 +129,7 @@ function validateCurrentStep() {
         return true;
       }
     case 7:
-      console.log("Validando case 7");
+      
       let selectedSexual = $('input[name=sexual]:checked');
       if (selectedSexual.length === 0) {
         alert('Por favor, seleccione una respuesta.');
@@ -138,10 +138,10 @@ function validateCurrentStep() {
         return true;
       }
     case 8:
-      console.log("Validando case 8");
+      
       return true;
     case 9:
-      console.log("Validando case 9");
+     
       let selectedVeg = $('input[name=vegetariano]:checked');
       if (selectedVeg.length === 0) {
         alert('Por favor, seleccione una respuesta.');
@@ -160,7 +160,7 @@ function handleNextButtonClick(e) {
         if (currentStep < formSteps.length) {
             hideAllSteps();
             showStep(currentStep);
-            console.log(currentStep);
+            
 
       } else {
         hideAllSteps();
@@ -183,7 +183,7 @@ prevBtns.forEach((btn) => {
   btn.addEventListener('click', handlePrevButtonClick);
 });
 submitBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+    
     const nombreInput = document.querySelector('#nombre');
     const correoInput = document.querySelector('#correo');
     const primerApellido = document.querySelector('#primerApellido')
@@ -204,20 +204,16 @@ if (maleRadio.checked) {
     sexo = maleRadio.value;
 } else if (femaleRadio.checked) {
     sexo = femaleRadio.value;
-} else {
-    console.log("No gender selected");
-}
+} 
 //-----Calcular edad------
 const age = calculateAge(dia, mes, year);
-console.log("edad: " + age);
+
 
 //--------Obtener IMC-----------
 
 const imc = calcularIMC(peso, altura);
 
-console.log("Tu IMC es: " + imc);
-console.log("El peso es de: " + peso.value);
-console.log("Tu altura es de: " + altura.value);
+
 
 //-------Calcular imc segun su edad----------
 
@@ -373,7 +369,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
     estatusImc = 3;
   }
 } else {
-  console.log("Es menor de 6 años");
+  estatusImc = "No calculado"
 }
 
 
@@ -392,8 +388,6 @@ if (age >= 6 && age <8 && sexo === 'F'){
         answerUltEstudio = ultEstudio2.value;
     }else if (ultEstudio3.checked){
         answerUltEstudio = ultEstudio3.value;
-    }else {
-        console.log("No se seleccionó ninguna respuesta");
     }
 
     //-------Obtener respuesta del descanso--------
@@ -412,8 +406,6 @@ if (age >= 6 && age <8 && sexo === 'F'){
       answerDescanso = descansoRe.value;
     } else if (descansoMa.checked) {
       answerDescanso = descansoMa.value;
-    } else {
-      console.log("No se selecciono ninguna respuesta de descanso");
     }
 
     //------------Obtener respuesta de ejercicio----------------
@@ -433,8 +425,6 @@ if (age >= 6 && age <8 && sexo === 'F'){
       answerEjercicio = ejercicio3.value;
     } else if (ejercicio4.checked){
       answerEjercicio = ejercicio4.value;
-    } else {
-      console.log("No se selecciono ninguna respuesta de ejercicio");
     }
 
     //-----------Obtener respuesta tabaco---------
@@ -446,9 +436,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
       answerTabaco = tabacoSi.value;
     } else if (tabacoNo.checked) {
       answerTabaco = tabacoNo.value;
-    } else {
-      console.log("No se seleciiono ninguna respuesta de tabaco");
-    }
+    } 
     //-----------Obtener respuesta Consumidor---------
     const consumidorSi = document.getElementById("consumidorSi");
     const consumidorNo = document.getElementById("consumidorNo");
@@ -458,9 +446,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
       answerConsumidor = consumidorSi.value;
     } else if (consumidorNo.checked) {
       answerConsumidor = consumidorNo.value;
-    } else {
-      console.log("No se seleciiono ninguna respuesta de Consumidor");
-    }
+    } 
     //-----------Obtener respuesta Alcohol-------------
     const alcohol1 = document.getElementById("alcohol1");
     const alcohol2 = document.getElementById("alcohol2");
@@ -477,9 +463,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
       answerAlcohol = alcohol3.value;
     } else if (alcohol4.checked){
       answerAlcohol = alcohol4.value;
-    }  else {
-      console.log("No se selecciono ninguna respuesta de alcohol");
-    }
+    } 
     //-----------Obtener respuesta Sexual-------------
     const sexual1 = document.getElementById("sexual1");
     const sexual2 = document.getElementById("sexual2");
@@ -494,9 +478,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
       answerSexual = sexual2.value;
     } else if (sexual3.checked){
       answerSexual = sexual3.value;
-    } else {
-      console.log("No se selecciono ninguna respuesta de sexual");
-    }
+    } 
 
     //-----------Obtener respuesta Enfermedades cronicas-------------
    
@@ -517,8 +499,6 @@ if (age >= 6 && age <8 && sexo === 'F'){
       answerVegetariano = vegetarianoSi.value;
     } else if (vegetarianoNo.checked) {
       answerVegetariano = vegetarianoNo.value;
-    } else {
-      console.log("No se seleciiono ninguna respuesta de Consumidor");
     }
  
 
@@ -544,7 +524,7 @@ if (age >= 19 && age <35){
       recomendacion ='ninos';
     } else if (age < 6){
       recomendacion = 'pediatra';
-      console.log("Menor de 6 años debe ir a pediatra");
+      
     } else if (age > 14 && age < 19){
       recomendacion = 'basico';
     } else if (age >=35 && age <= 59){
@@ -650,15 +630,7 @@ if (age >= 19 && age <35){
     
     //-----------Obtener todos los datos-----------
 
-    console.log("NOMBRE : " + nombreInput.value);
-    console.log("SEXO : " + sexo);
-    console.log("EDAD : " + age);
-    console.log("IMC es de : " + imc);
-    console.log("Tu imc es: " + estatusImc);
-    console.log("CORREO : " + correoInput.value);
-    console.log("sexual" + recomExtraDos + "sexual " + recomExtraTres);
-    console.log("sexual value: "+ answerSexual);
-
+   
 
 //----------- Mensaje de gracias------------
 
@@ -693,7 +665,7 @@ fechaDiv.classList.add("fecha-div");
 
 
 
-console.log("recom: " + recomendacion);
+
 // Cambiar la visibilidad del checkup correspondiente
 if (recomExtraUno !== false) {
   let extraUno = document.getElementById(recomExtraUno);
@@ -758,15 +730,15 @@ function calculateAge(diaField, mesField, yearField) {
     
     // Validación de los campos de fecha
     if (dia < 1 || dia > 31) {
-      console.log('El valor del día debe estar entre 1 y 31');
+      
       return;
     }
     if (mes < 1 || mes > 12) {
-      console.log('El valor del mes debe estar entre 1 y 12');
+      
       return;
     }
     if (year < 1900 || year > new Date().getFullYear()) {
-      console.log('El valor del año debe estar entre 1900 y el año actual');
+      
       return;
     }
     const today = new Date();
