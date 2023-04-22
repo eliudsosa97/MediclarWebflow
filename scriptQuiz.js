@@ -37,7 +37,7 @@ function validateCurrentStep() {
     const dia = parseInt(diaField.value);
     const mes = parseInt(mesField.value);
     const year = parseInt(yearField.value);
-    if (isNaN(dia) || isNaN(mes) || isNaN(year) || dia < 1 || dia > 31 || mes < 1 || mes > 12 || year < 1900 || year > new Date().getFullYear()) {
+    if (isNaN(dia) || isNaN(mes) || isNaN(year) || dia < 1 || dia > 31 || mes < 1 || mes > 12 || year < 1900 || year > 2015) {
         alert('Por favor ingrese una fecha de nacimiento válida.');
         return false;
     }if (mes === 2 && dia > 28) {
