@@ -532,7 +532,7 @@ if (age >= 19 && age <35){
         if (answerUltEstudio <= 2){
           recomendacion = 'mayores40P';
         } else if(answerUltEstudio > 2){
-          recomendacion = 'mayores 40A';
+          recomendacion = 'mayores40A';
         } else if (answerTabaco === "si"){
           recomendacion ='mayores40A';
         } else if (answerAlcohol === 4){
