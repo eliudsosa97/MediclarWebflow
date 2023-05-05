@@ -192,8 +192,7 @@ submitBtn.addEventListener('click', (e) => {
     if (nombreInput.value && primerApellido.value && (validEmail.test(correoInput.value))){
     const formData = new FormData(form);
     const entries = formData.entries();
-    for (let entry of entries) {
-      console.log(entry[0] + ': ' + entry[1]);
+    
 //-----Obtener valor del sexo--------
     const maleRadio = document.getElementById("radio-m");
     const femaleRadio = document.getElementById("radio-f");
@@ -208,12 +207,8 @@ if (maleRadio.checked) {
 //-----Calcular edad------
 const age = calculateAge(dia, mes, year);
 
-
 //--------Obtener IMC-----------
-
 const imc = calcularIMC(peso, altura);
-
-
 
 //-------Calcular imc segun su edad----------
 
@@ -372,14 +367,11 @@ if (age >= 6 && age <8 && sexo === 'F'){
   estatusImc = "No calculado"
 }
 
-
-
 //------Obtener respuesta ultimo estudio---------------
     const ultEstudio1 = document.getElementById("ult-estudio1");
     const ultEstudio2 = document.getElementById("ult-estudio2");
     const ultEstudio3 = document.getElementById("ult-estudio3");
     
-
     let answerUltEstudio;
 
     if(ultEstudio1.checked){
@@ -453,7 +445,6 @@ if (age >= 6 && age <8 && sexo === 'F'){
     const alcohol3 = document.getElementById("alcohol3");
     const alcohol4 = document.getElementById("alcohol4");
 
-
     let answerAlcohol;
     if(alcohol1.checked){
       answerAlcohol = alcohol1.value;
@@ -467,9 +458,7 @@ if (age >= 6 && age <8 && sexo === 'F'){
     //-----------Obtener respuesta Sexual-------------
     const sexual1 = document.getElementById("sexual1");
     const sexual2 = document.getElementById("sexual2");
-    const sexual3 = document.getElementById("sexual3");
-    
-    
+    const sexual3 = document.getElementById("sexual3");    
 
     let answerSexual;
     if(sexual1.checked){
@@ -500,16 +489,13 @@ if (age >= 6 && age <8 && sexo === 'F'){
     } else if (vegetarianoNo.checked) {
       answerVegetariano = vegetarianoNo.value;
     }
- 
-
-
 
 //--------Algoritomo de recomendacion---------
 let recomendacion = '';
 if (age >= 19 && age <35){
-      if (estatusImc === 0 || estatusImc > 1){
-        recomendacion = 'adultoJovenA';
-      } else if (answerUltEstudio === 3){
+      if (answerUltEstudio <= 2){
+        recomendacion = 'adultoJovenP';
+      } else if(answerUltEstudio > 2){
         recomendacion = 'adultoJovenA';
       } else if (answerTabaco === "si"){
         recomendacion ='adultoJovenA';
@@ -529,9 +515,9 @@ if (age >= 19 && age <35){
       recomendacion = 'basico';
     } else if (age >=35 && age <= 59){
       if (sexo === "F"){
-        if (estatusImc === 0 || estatusImc > 1){
-          recomendacion = 'mayores40MA';
-        } else if (answerUltEstudio === 3){
+        if (answerUltEstudio <= 2){
+          recomendacion = 'mayores40MP';
+        } else if(answerUltEstudio > 2){
           recomendacion = 'mayores40MA';
         } else if (answerTabaco === "si"){
           recomendacion ='mayores40MA';
@@ -543,10 +529,10 @@ if (age >= 19 && age <35){
           recomendacion ='mayores40MP';
         }
       } else if (sexo === "M"){
-        if (estatusImc === 0 || estatusImc > 1){
-          recomendacion = 'mayores40A';
-        } else if (answerUltEstudio === 3){
-          recomendacion = 'mayores40A';
+        if (answerUltEstudio <= 2){
+          recomendacion = 'mayores40P';
+        } else if(answerUltEstudio > 2){
+          recomendacion = 'mayores 40A';
         } else if (answerTabaco === "si"){
           recomendacion ='mayores40A';
         } else if (answerAlcohol === 4){
@@ -559,9 +545,9 @@ if (age >= 19 && age <35){
       }
     } else if (age > 59){
       if (sexo === "F"){
-        if (estatusImc === 0 || estatusImc > 1){
-          recomendacion = 'adultoMayorMA';
-        } else if (answerUltEstudio === 3){
+        if (answerUltEstudio < 2){
+          recomendacion = 'adultoMayorMP';
+        } else if (answerUltEstudio > 1){
           recomendacion = 'adultoMayorMA';
         } else if (answerTabaco === "si"){
           recomendacion ='adultoMayorMA';
@@ -573,9 +559,9 @@ if (age >= 19 && age <35){
           recomendacion ='adultoMayorMP';
         }
       } else if (sexo === "M"){
-        if (estatusImc === 0 || estatusImc > 1){
-          recomendacion = 'adultoMayorA';
-        } else if (answerUltEstudio === 3){
+        if (answerUltEstudio < 2){
+          recomendacion = 'adultoMayorP';
+        } else if (answerUltEstudio > 1){
           recomendacion = 'adultoMayorA';
         } else if (answerTabaco === "si"){
           recomendacion ='adultoMayorA';
@@ -628,9 +614,6 @@ if (age >= 19 && age <35){
       recomExtraCuatro = false;
     };
     
-    //-----------Obtener todos los datos-----------
-
-   
 
 //----------- Mensaje de gracias------------
 
@@ -639,7 +622,6 @@ if (age >= 19 && age <35){
     perfilDiv.innerHTML = mensaje;
     
     perfilDiv.classList.add("card-perfil");
-
 
 //----------- Obtener la fecha actual
 
@@ -658,13 +640,6 @@ const mensajeFecha = diaFecha + "/" + mesFecha + "/" + yearFecha;
 
 fechaDiv.innerHTML = mensajeFecha;
 fechaDiv.classList.add("fecha-div");
-
-
-
-
-
-
-
 
 // Cambiar la visibilidad del checkup correspondiente
 if (recomExtraUno !== false) {
@@ -703,14 +678,15 @@ if (recomExtraUno !== false || recomExtraDos !== false || recomExtraTres !== fal
 let footerDiv = document.getElementById('footer-recom');
 footerDiv.style.display = 'block'
 
-
-
-
-
 let checkup = document.getElementById(recomendacion);
 checkup.style.display = 'block';
 submitSection.style.display = 'none'; 
-}} else {
+//-----------Asignar a inputs ocultos
+document.getElementById("edadCalculada").value = age;
+document.getElementById("imcCalculado").value = estatusImc;
+document.getElementById("recomFinal").value = recomendacion;
+
+} else {
   
       // Si los campos de nombre y correo están vacíos
       alert('Por favor, asegurate de que tu nombre y correo estén bien escritos');
