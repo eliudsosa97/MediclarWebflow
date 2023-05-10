@@ -186,10 +186,12 @@ submitBtn.addEventListener('click', (e) => {
     
     const nombreInput = document.querySelector('#nombre');
     const correoInput = document.querySelector('#correo');
+    const celularInput = document.querySelector('#celular');
     const primerApellido = document.querySelector('#primerApellido')
     const validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-
-    if (nombreInput.value && primerApellido.value && (validEmail.test(correoInput.value))){
+    const validCelular = /^\+?[0-9]{10,13}$/;
+    
+    if (nombreInput.value && primerApellido.value && (validEmail.test(correoInput.value)) && (validCelular.test(celularInput.value))){
     const formData = new FormData(form);
     const entries = formData.entries();
     
@@ -493,84 +495,31 @@ if (age >= 6 && age <8 && sexo === 'F'){
 //--------Algoritomo de recomendacion---------
 let recomendacion = '';
 if (age >= 19 && age <35){
-      if (answerUltEstudio <= 2){
-        recomendacion = 'adultoJovenP';
-      } else if(answerUltEstudio > 2){
-        recomendacion = 'adultoJovenA';
-      } else if (answerTabaco === "si"){
-        recomendacion ='adultoJovenA';
-      } else if (answerAlcohol === 4){
-        recomendacion ='adultoJovenA';
-      } else if (answerEjercicio === 4){
-        recomendacion ='adultoJovenA';
-      } else {
-        recomendacion ='adultoJovenP';
-      }
-    } else if (age > 6 && age < 15){
+        recomendacion ='adultoJoven';
+      } else if (age > 6 && age < 15){
       recomendacion ='ninos';
-    } else if (age < 6){
+      } else if (age < 6){
       recomendacion = 'pediatra';
-      
-    } else if (age > 14 && age < 19){
+      } else if (age > 14 && age < 19){
       recomendacion = 'basico';
-    } else if (age >=35 && age <= 59){
+      } else if (age >=35 && age <= 59){
       if (sexo === "F"){
-        if (answerUltEstudio <= 2){
-          recomendacion = 'mayores40MP';
-        } else if(answerUltEstudio > 2){
-          recomendacion = 'mayores40MA';
-        } else if (answerTabaco === "si"){
-          recomendacion ='mayores40MA';
-        } else if (answerAlcohol === 4){
-          recomendacion ='mayores40MA';
-        } else if (answerEjercicio === 4){
-          recomendacion ='mayores40MA';
-        } else {
-          recomendacion ='mayores40MP';
-        }
+        recomendacion = 'mujeres40';
       } else if (sexo === "M"){
-        if (answerUltEstudio <= 2){
-          recomendacion = 'mayores40P';
-        } else if(answerUltEstudio > 2){
-          recomendacion = 'mayores40A';
-        } else if (answerTabaco === "si"){
-          recomendacion ='mayores40A';
-        } else if (answerAlcohol === 4){
-          recomendacion ='mayores40A';
-        } else if (answerEjercicio === 4){
-          recomendacion ='mayores40A';
-        } else {
-          recomendacion ='mayores40P';
-        }
+          recomendacion = 'hombres40';
       }
-    } else if (age > 59){
+      } else if (age > 59){
       if (sexo === "F"){
         if (answerUltEstudio < 2){
-          recomendacion = 'adultoMayorMP';
-        } else if (answerUltEstudio > 1){
-          recomendacion = 'adultoMayorMA';
-        } else if (answerTabaco === "si"){
-          recomendacion ='adultoMayorMA';
-        } else if (answerAlcohol === 4){
-          recomendacion ='adultoMayorMA';
-        } else if (answerEjercicio === 4){
-          recomendacion ='adultoMayorMA';
+          recomendacion = 'adultoMayorMBP';
         } else {
-          recomendacion ='adultoMayorMP';
+          recomendacion ='adultoMayorMPA';
         }
       } else if (sexo === "M"){
         if (answerUltEstudio < 2){
-          recomendacion = 'adultoMayorP';
-        } else if (answerUltEstudio > 1){
-          recomendacion = 'adultoMayorA';
-        } else if (answerTabaco === "si"){
-          recomendacion ='adultoMayorA';
-        } else if (answerAlcohol === 4){
-          recomendacion ='adultoMayorA';
-        } else if (answerEjercicio === 4){
-          recomendacion ='adultoMayorA';
+          recomendacion = 'adultoMayorBP';
         } else {
-          recomendacion ='adultoMayorP';
+          recomendacion ='adultoMayorPA';
         }
       }
     }
@@ -687,9 +636,9 @@ document.getElementById("imcCalculado").value = estatusImc;
 document.getElementById("recomFinal").value = recomendacion;
 
 } else {
-  
+      e.preventDefault();
       // Si los campos de nombre y correo están vacíos
-      alert('Por favor, asegurate de que tu nombre y correo estén bien escritos');
+      alert('Por favor, asegurate de que tu nombre, correo y teléfono estén bien escritos');
     }
     
   });
